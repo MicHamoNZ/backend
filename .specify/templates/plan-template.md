@@ -31,7 +31,19 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+Verify each principle from `.specify/memory/constitution.md` before proceeding:
+
+- [ ] **I. Layered Architecture** — Routes only delegate; controllers hold no business
+  logic; all DB access is behind a service/repository. No direct queries in routes or
+  controllers.
+- [ ] **II. Test-First** — Mocha/Chai tests are written and confirmed FAILING before any
+  production code is committed. Test files import `src/app.js`, not `src/server.js`.
+- [ ] **III. Configuration via Environment** — No hard-coded credentials, ports, or
+  hostnames in `src/`. All new env vars are added to `.env.example`.
+- [ ] **IV. Observability** — Morgan is the first middleware; a 4-arg error handler is
+  the last middleware in `src/app.js`; `/health` returns the correct shape.
+- [ ] **V. Simplicity & YAGNI** — No speculative abstractions; new dependencies are
+  documented in the spec; CommonJS (`require`/`module.exports`) used throughout.
 
 ## Project Structure
 

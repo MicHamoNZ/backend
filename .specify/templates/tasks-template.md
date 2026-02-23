@@ -20,10 +20,13 @@ description: "Task list template for feature implementation"
 
 ## Path Conventions
 
-- **Single project**: `src/`, `tests/` at repository root
+- **This project (backend API)**: `src/routes/`, `src/controllers/`, `src/config/`,
+  `src/app.js`, `src/server.js`, `test/` at repository root.
 - **Web app**: `backend/src/`, `frontend/src/`
 - **Mobile**: `api/src/`, `ios/src/` or `android/src/`
-- Paths shown below assume single project - adjust based on plan.md structure
+- Paths shown below assume this backend layout — adjust if the plan specifies otherwise.
+- Per **Principle II (Test-First)**: test tasks MUST appear before implementation tasks
+  within each user story phase; tests import `src/app.js`, never `src/server.js`.
 
 <!-- 
   ============================================================================

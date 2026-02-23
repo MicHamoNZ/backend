@@ -1,0 +1,17 @@
+﻿{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Spec Kit: check tools",
+      "type": "shell",
+      "command": "specify check",
+      "problemMatcher": []
+    },
+    {
+      "label": "Spec Kit: init (copilot, powershell)",
+      "type": "shell",
+      "command": "specify init . --ai copilot --script ps",
+      "problemMatcher": []
+    }
+  ]
+}

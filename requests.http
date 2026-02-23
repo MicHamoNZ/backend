@@ -1,0 +1,28 @@
+﻿### Health Check Endpoint — JetBrains HTTP Client
+### Usage: Open in WebStorm/IntelliJ and click ▶ against a running local server (npm run dev)
+
+@baseUrl = http://localhost:3010
+
+### GET /health — Liveness check (no auth required)
+GET {{baseUrl}}/health
+Accept: application/json
+
+###
+# Expected 200 Response Shape:
+#
+# HTTP/1.1 200 OK
+# Content-Type: application/json; charset=utf-8
+#
+# {
+#   "status": "ok",
+#   "timestamp": "2026-02-23T12:00:00.000Z",
+#   "uptimeSeconds": 42,
+#   "version": "1.0.0"
+# }
+#
+# Field descriptions:
+#   status        — always "ok" when the service is healthy
+#   timestamp     — ISO 8601 UTC datetime of when this request was processed
+#   uptimeSeconds — integer seconds since the Node process started (>= 0)
+#   version       — matches the "version" field in package.json
+
