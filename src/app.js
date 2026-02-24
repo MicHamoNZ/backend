@@ -6,6 +6,7 @@ const cors = require('cors');
 
 const healthRouter = require('./routes/health.routes');
 const dbHealthRouter = require('./routes/dbHealth.routes');
+const apiRouter = require('./routes');
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 // Feature routes (after body parsers, before error handler)
 app.use('/api/health', healthRouter);
 app.use('/api/db-health', dbHealthRouter);
+app.use('/api', apiRouter); // versioned routes (e.g. /api/v1/status)
 
 
 // 4-arg error handler (LAST middleware — per constitution Principle IV)
