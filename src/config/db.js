@@ -16,12 +16,6 @@ pool.on('connect', () => {
   console.log('✅ PostgreSQL pool: new client connected');
 });
 
-// Temporarily log which server we are connecting to
-console.log('🔌 Connecting to PostgreSQL at:', {
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-});
-
 // Optional: log pool errors so they don't crash the app silently
 pool.on('error', (err) => {
   console.error('❌ PostgreSQL pool error:', err.message);

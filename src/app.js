@@ -30,12 +30,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Catch-all: shows you exactly what URL was not found
-app.use((req, res) => {
-  res.status(404).json({ message: `Route not found: ${req.method} ${req.originalUrl}` });
-});
-
-
 module.exports = app;
 
 
