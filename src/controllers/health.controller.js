@@ -13,7 +13,8 @@ try {
  */
 function getHealth(req, res) {
   res.status(200).json({
-    status: 'ok',
+    success: true,
+    message: 'OK',
     timestamp: new Date().toISOString(),
     uptimeSeconds: Math.floor(process.uptime()),
     version: APP_VERSION,

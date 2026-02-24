@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 const healthRouter = require('./routes/health.routes');
+const dbHealthRouter = require('./routes/dbHealth.routes');
 
 const app = express();
 
@@ -14,7 +15,9 @@ app.use(cors());
 app.use(express.json());
 
 // Feature routes (after body parsers, before error handler)
-app.use('/health', healthRouter);
+app.use('/api/health', healthRouter);
+app.use('/api/db-health', dbHealthRouter);
+
 
 // 4-arg error handler (LAST middleware — per constitution Principle IV)
 // eslint-disable-next-line no-unused-vars
@@ -24,6 +27,12 @@ app.use((err, req, res, next) => {
     error: err.message || 'Internal Server Error',
   });
 });
+
+// Catch-all: shows you exactly what URL was not found
+app.use((req, res) => {
+  res.status(404).json({ message: `Route not found: ${req.method} ${req.originalUrl}` });
+});
+
 
 module.exports = app;
 

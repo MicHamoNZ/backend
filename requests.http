@@ -1,7 +1,7 @@
 ﻿### Health Check Endpoint — JetBrains HTTP Client
 ### Usage: Open in WebStorm/IntelliJ and click ▶ against a running local server (npm run dev)
 
-@baseUrl = http://localhost:3010
+@baseUrl = http://localhost:3010/api
 
 ### GET /health — Liveness check (no auth required)
 GET {{baseUrl}}/health
@@ -26,3 +26,14 @@ Accept: application/json
 #   uptimeSeconds — integer seconds since the Node process started (>= 0)
 #   version       — matches the "version" field in package.json
 
+### Health Check
+# Confirms the backend is running and returns basic runtime info
+GET http://localhost:3010/api/health
+
+### Expected response shape (example)
+# {
+#   "status": "ok",
+#   "timestamp": "2026-02-24T04:55:15.063Z",
+#   "uptimeSeconds": 53,
+#   "version": "1.0.0"
+# }
